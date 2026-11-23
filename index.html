@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AqlCharx — Miya va Tafakkur Platformasi (28 ta O'yin)</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Nunito:wght@600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="theme-default">
+
+  <div id="confetti-container" aria-hidden="true"></div>
+
+  <header class="app-header sticky-top">
+    <div class="container d-flex align-items-center justify-content-between py-2">
+      <button id="btn-home-logo" type="button" class="brand-btn d-flex align-items-center gap-2 border-0 bg-transparent p-0" title="Bosh sahifaga qaytish">
+        <span class="brand-icon">🧠</span>
+        <span class="brand-title">AqlCharx</span>
+      </button>
+
+      <div class="d-flex align-items-center gap-2 gap-md-3">
+        <div class="total-score-badge" title="Barcha o'yinlardagi rekord ballar yig'indisi">
+          <span>🏆</span>
+          <span id="global-total-score">0</span>
+        </div>
+
+        <button id="btn-sound-toggle" type="button" class="btn-icon-control" aria-label="Ovozni boshqarish" title="Ovozni yoqish / o'chirish">
+          <span id="sound-icon">🔊</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container py-4 py-md-5">
+
+    <!-- BOSH SAHIFA -->
+    <section id="view-home" class="view-section">
+      <div class="text-center mb-4 mb-md-5">
+        <h1 class="hero-title mb-2">Aqlingizni charxlashga tayyormisiz?</h1>
+        <p class="hero-subtitle mx-auto">
+          Xotira, mantiq, diqqat, hisob-kitob, so‘z boyligi va fazoviy tafakkurni rivojlantiruvchi 28 ta to‘liq ishlaydigan o‘yin. Yosh toifasini tanlang!
+        </p>
+      </div>
+      <div class="row g-4" id="age-groups-grid"></div>
+    </section>
+
+    <!-- YOSH GURUHIGA MOS O'YINLAR RO'YXATI -->
+    <section id="view-games" class="view-section d-none">
+      <div class="d-flex flex-wrap align-items-center justify-content-between gap-3 mb-4">
+        <button id="btn-back-to-home" type="button" class="btn-nav-back">
+          <span>⬅️</span>
+          <span>Yosh toifalariga qaytish</span>
+        </button>
+        <div id="group-progress-pill" class="group-progress-pill"></div>
+      </div>
+
+      <div class="group-banner mb-4">
+        <div class="d-flex align-items-center gap-3">
+          <div class="group-banner-icon" id="group-banner-icon">🧸</div>
+          <div>
+            <h2 class="group-banner-title mb-1" id="group-banner-title">Yosh guruhi</h2>
+            <p class="group-banner-desc mb-0" id="group-banner-desc"></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="row g-3 g-md-4" id="games-list-grid"></div>
+    </section>
+
+    <!-- O'YIN MAYDONI -->
+    <section id="view-arena" class="view-section d-none">
+      <div class="arena-top-bar d-flex flex-wrap align-items-center justify-content-between gap-2 mb-3">
+        <button id="btn-back-to-games" type="button" class="btn-nav-back">
+          <span>⬅️</span>
+          <span>O‘yinlar ro‘yxati</span>
+        </button>
+
+        <div class="d-flex align-items-center gap-2 gap-md-3">
+          <div class="arena-stat-pill">
+            <span class="stat-label">Rekord:</span>
+            <strong id="arena-best-score">0</strong>
+          </div>
+          <div class="arena-stat-pill highlight">
+            <span class="stat-label">Ball:</span>
+            <strong id="arena-current-score">0</strong>
+          </div>
+        </div>
+      </div>
+
+      <div id="game-stage" class="game-stage"></div>
+    </section>
+
+  </main>
+
+  <div id="app-toast" class="app-toast" role="status" aria-live="polite"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>

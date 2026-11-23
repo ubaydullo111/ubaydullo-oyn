@@ -1,0 +1,485 @@
+/* ==========================================================================
+   1. RANG PALITRALARI VA YOSH MAVZULARI
+   ========================================================================== */
+:root {
+  --bg-page: #f4f7fb;
+  --bg-card: #ffffff;
+  --text-main: #1e293b;
+  --text-muted: #64748b;
+  --accent: #4f46e5;
+  --accent-soft: #eef2ff;
+  --accent-hover: #4338ca;
+  --border-color: #e2e8f0;
+  --radius-card: 20px;
+  --radius-btn: 14px;
+  --font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  --shadow-sm: 0 4px 12px rgba(15, 23, 42, 0.05);
+  --shadow-md: 0 10px 25px rgba(15, 23, 42, 0.08);
+  --shadow-lg: 0 18px 36px rgba(15, 23, 42, 0.12);
+}
+
+body.theme-age-5-7 {
+  --bg-page: #fffbeb;
+  --bg-card: #ffffff;
+  --text-main: #292524;
+  --text-muted: #57534e;
+  --accent: #f59e0b;
+  --accent-soft: #fef3c7;
+  --accent-hover: #d97706;
+  --border-color: #fde68a;
+  --radius-card: 28px;
+  --radius-btn: 20px;
+  --font-family: 'Nunito', sans-serif;
+  font-size: 1.12rem;
+}
+
+body.theme-age-7-13 {
+  --bg-page: #ecfdf5;
+  --bg-card: #ffffff;
+  --text-main: #064e3b;
+  --text-muted: #047857;
+  --accent: #10b981;
+  --accent-soft: #d1fae5;
+  --accent-hover: #059669;
+  --border-color: #a7f3d0;
+  --radius-card: 22px;
+  --radius-btn: 16px;
+  --font-family: 'Nunito', sans-serif;
+}
+
+body.theme-age-13-19 {
+  --bg-page: #f5f3ff;
+  --bg-card: #ffffff;
+  --text-main: #1e1b4b;
+  --text-muted: #4c1d95;
+  --accent: #7c3aed;
+  --accent-soft: #ede9fe;
+  --accent-hover: #6d28d9;
+  --border-color: #ddd6fe;
+  --radius-card: 18px;
+  --radius-btn: 12px;
+  --font-family: 'Inter', sans-serif;
+}
+
+body.theme-age-19-plus {
+  --bg-page: #f1f5f9;
+  --bg-card: #ffffff;
+  --text-main: #0f172a;
+  --text-muted: #475569;
+  --accent: #0284c7;
+  --accent-soft: #e0f2fe;
+  --accent-hover: #0369a1;
+  --border-color: #cbd5e1;
+  --radius-card: 16px;
+  --radius-btn: 10px;
+  --font-family: 'Inter', sans-serif;
+}
+
+/* ==========================================================================
+   2. UMUMIY ELEMENTLAR VA NAVIGATSIYA
+   ========================================================================== */
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  margin: 0;
+  background-color: var(--bg-page);
+  color: var(--text-main);
+  font-family: var(--font-family);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.app-header {
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border-color);
+  z-index: 1020;
+}
+
+.brand-btn { cursor: pointer; transition: transform 0.2s ease; }
+.brand-btn:hover { transform: scale(1.03); }
+.brand-icon { font-size: 1.7rem; line-height: 1; }
+.brand-title { font-weight: 800; font-size: 1.35rem; color: var(--text-main); }
+
+.total-score-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--accent-soft);
+  color: var(--accent);
+  border: 1.5px solid var(--border-color);
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-weight: 800;
+}
+
+.btn-icon-control {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 1.5px solid var(--border-color);
+  background: var(--bg-card);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: transform 0.18s ease, background-color 0.2s ease;
+}
+
+.btn-icon-control:hover { transform: translateY(-2px); background: var(--accent-soft); }
+.btn-icon-control:active { transform: scale(0.92); }
+
+/* ==========================================================================
+   3. BOSH SAHIFA VA O'YIN KARTALARI
+   ========================================================================== */
+.hero-title { font-weight: 900; font-size: clamp(1.75rem, 4vw, 2.7rem); letter-spacing: -0.03em; }
+.hero-subtitle { max-width: 680px; color: var(--text-muted); font-size: 1.04rem; }
+
+.age-card {
+  position: relative;
+  border-radius: 26px;
+  padding: 26px 22px;
+  color: #ffffff;
+  cursor: pointer;
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  transition: transform 0.26s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.26s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.age-card:hover { transform: translateY(-7px) scale(1.015); box-shadow: var(--shadow-lg); }
+.age-card:active { transform: scale(0.97); }
+
+.age-card-5-7 { background: linear-gradient(135deg, #f59e0b 0%, #fb7185 100%); }
+.age-card-7-13 { background: linear-gradient(135deg, #10b981 0%, #0ea5e9 100%); }
+.age-card-13-19 { background: linear-gradient(135deg, #7c3aed 0%, #ec4899 100%); }
+.age-card-19-plus { background: linear-gradient(135deg, #0f172a 0%, #0284c7 100%); }
+
+.age-card-emoji { font-size: 3.1rem; line-height: 1; margin-bottom: 12px; display: inline-block; animation: floatIcon 3s ease-in-out infinite; }
+@keyframes floatIcon { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
+
+.age-card-badge {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.22);
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-size: 0.84rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.age-card-title { font-size: 1.7rem; font-weight: 900; margin-bottom: 6px; }
+.age-card-desc { font-size: 0.96rem; opacity: 0.93; margin-bottom: 16px; }
+
+.age-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: 700;
+  font-size: 0.9rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.24);
+  padding-top: 12px;
+}
+
+.btn-nav-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--bg-card);
+  color: var(--text-main);
+  border: 1.5px solid var(--border-color);
+  padding: 9px 16px;
+  border-radius: var(--radius-btn);
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-nav-back:hover { background: var(--accent-soft); border-color: var(--accent); transform: translateX(-3px); }
+
+.group-progress-pill {
+  background: var(--bg-card);
+  border: 1.5px solid var(--border-color);
+  padding: 8px 16px;
+  border-radius: 999px;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.group-banner {
+  background: var(--bg-card);
+  border: 2px solid var(--border-color);
+  border-radius: var(--radius-card);
+  padding: 18px 22px;
+  box-shadow: var(--shadow-sm);
+}
+
+.group-banner-icon {
+  font-size: 2.6rem;
+  width: 62px;
+  height: 62px;
+  border-radius: 18px;
+  background: var(--accent-soft);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.group-banner-title { font-weight: 800; font-size: 1.5rem; }
+.group-banner-desc { color: var(--text-muted); }
+
+.game-card {
+  background: var(--bg-card);
+  border: 2px solid var(--border-color);
+  border-radius: var(--radius-card);
+  padding: 20px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.22s cubic-bezier(0.34, 1.56, 0.64, 1), border-color 0.2s ease, box-shadow 0.22s ease;
+}
+
+.game-card:hover { transform: translateY(-6px); border-color: var(--accent); box-shadow: var(--shadow-md); }
+.game-card:active { transform: scale(0.98); }
+
+.game-card-icon {
+  width: 54px;
+  height: 54px;
+  border-radius: 16px;
+  background: var(--accent-soft);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  margin-bottom: 12px;
+}
+
+.badge-play {
+  background: var(--accent-soft);
+  color: var(--accent);
+  border: 1px solid var(--border-color);
+  font-size: 0.75rem;
+  font-weight: 800;
+  padding: 4px 10px;
+  border-radius: 999px;
+}
+
+.game-card-title { font-weight: 800; font-size: 1.15rem; margin-bottom: 6px; }
+.game-card-desc { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 14px; line-height: 1.45; }
+
+.game-card-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 10px;
+  border-top: 1px dashed var(--border-color);
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.diff-pill { padding: 3px 9px; border-radius: 8px; background: var(--accent-soft); color: var(--accent); }
+
+body.theme-age-5-7 .game-card { padding: 24px; }
+body.theme-age-5-7 .game-card-icon { width: 64px; height: 64px; font-size: 2.2rem; }
+body.theme-age-5-7 .game-card-title { font-size: 1.3rem; }
+
+/* ==========================================================================
+   4. O'YIN MAYDONI VA O'YIN KOMPONENTLARI
+   ========================================================================== */
+.arena-stat-pill {
+  background: var(--bg-card);
+  border: 1.5px solid var(--border-color);
+  padding: 7px 14px;
+  border-radius: var(--radius-btn);
+  font-size: 0.92rem;
+}
+
+.arena-stat-pill.highlight {
+  background: var(--accent-soft);
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.game-stage {
+  background: var(--bg-card);
+  border: 2px solid var(--border-color);
+  border-radius: var(--radius-card);
+  padding: 22px;
+  min-height: 450px;
+  box-shadow: var(--shadow-md);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.stage-center-box { max-width: 640px; margin: 0 auto; text-align: center; width: 100%; }
+.stage-big-icon { font-size: 3.8rem; margin-bottom: 10px; display: inline-block; }
+
+.btn-primary-game {
+  background: var(--accent);
+  color: #ffffff;
+  border: none;
+  padding: 12px 24px;
+  border-radius: var(--radius-btn);
+  font-weight: 800;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: transform 0.18s ease, background-color 0.2s ease;
+}
+
+.btn-primary-game:hover { background: var(--accent-hover); transform: translateY(-2px); }
+.btn-primary-game:active { transform: scale(0.96); }
+
+.btn-outline-game {
+  background: transparent;
+  color: var(--text-main);
+  border: 2px solid var(--border-color);
+  padding: 10px 20px;
+  border-radius: var(--radius-btn);
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-outline-game:hover { border-color: var(--accent); background: var(--accent-soft); }
+
+.difficulty-selector { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin: 16px 0 22px; }
+
+.diff-btn {
+  padding: 8px 16px;
+  border-radius: var(--radius-btn);
+  border: 2px solid var(--border-color);
+  background: var(--bg-page);
+  color: var(--text-main);
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.diff-btn.active { background: var(--accent); border-color: var(--accent); color: #ffffff; }
+
+.game-hud {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  background: var(--bg-page);
+  border: 1.5px solid var(--border-color);
+  border-radius: 14px;
+  padding: 10px 16px;
+  margin-bottom: 18px;
+  font-weight: 700;
+}
+
+.choice-btn {
+  border: 2px solid var(--border-color);
+  background: var(--bg-page);
+  color: var(--text-main);
+  border-radius: 16px;
+  padding: 14px 18px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: transform 0.16s ease, border-color 0.16s ease, background-color 0.16s ease;
+}
+
+.choice-btn:hover { transform: translateY(-3px); border-color: var(--accent); background: var(--accent-soft); }
+.choice-btn:active { transform: scale(0.96); }
+
+/* Xotira kartalari */
+.mem-grid { display: grid; gap: 10px; max-width: 440px; margin: 0 auto; }
+.mem-card {
+  aspect-ratio: 1 / 1;
+  border-radius: 14px;
+  border: 2px solid var(--border-color);
+  background: var(--accent);
+  color: #ffffff;
+  font-size: 1.7rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  user-select: none;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+.mem-card.revealed, .mem-card.matched { background: var(--bg-page); color: var(--text-main); border-color: var(--accent); }
+.mem-card.matched { background: #dcfce7; border-color: #16a34a; }
+
+/* Sudoku va Panjaralar */
+.mini-grid { display: grid; gap: 6px; margin: 0 auto; }
+.grid-cell {
+  aspect-ratio: 1 / 1;
+  border: 2px solid var(--border-color);
+  border-radius: 10px;
+  background: var(--bg-page);
+  color: var(--text-main);
+  font-weight: 800;
+  font-size: 1.15rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.15s ease;
+}
+.grid-cell:hover { border-color: var(--accent); }
+.grid-cell.fixed { background: var(--accent-soft); color: var(--accent); cursor: default; }
+.grid-cell.selected { outline: 3px solid var(--accent); background: #ffffff; }
+.grid-cell.lit { background: #facc15; color: #1e293b; border-color: #eab308; }
+
+/* ==========================================================================
+   5. ANIMATSIYALAR, KONFETTI VA TOAST
+   ========================================================================== */
+.view-section { animation: fadeSlideUp 0.3s ease forwards; }
+@keyframes fadeSlideUp { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+
+.shake-error { animation: shakeAnim 0.4s cubic-bezier(0.36, 0.07, 0.19, 0.97) both; }
+@keyframes shakeAnim {
+  10%, 90% { transform: translateX(-4px); }
+  20%, 80% { transform: translateX(6px); }
+  30%, 50%, 70% { transform: translateX(-8px); }
+  40%, 60% { transform: translateX(8px); }
+}
+
+.pulse-success { animation: pulseSuccess 0.38s ease; }
+@keyframes pulseSuccess { 0% { transform: scale(1); } 50% { transform: scale(1.06); } 100% { transform: scale(1); } }
+
+#confetti-container { position: fixed; inset: 0; pointer-events: none; z-index: 2000; overflow: hidden; }
+.confetti-piece { position: absolute; top: -16px; width: 10px; height: 16px; border-radius: 3px; animation: confettiFall linear forwards; }
+@keyframes confettiFall {
+  0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+  100% { transform: translateY(105vh) rotate(720deg); opacity: 0; }
+}
+
+.app-toast {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%) translateY(100px);
+  background: #0f172a;
+  color: #ffffff;
+  padding: 11px 22px;
+  border-radius: 999px;
+  font-weight: 700;
+  box-shadow: var(--shadow-lg);
+  z-index: 1500;
+  opacity: 0;
+  transition: transform 0.28s ease, opacity 0.28s ease;
+  pointer-events: none;
+}
+.app-toast.show { transform: translateX(-50%) translateY(0); opacity: 1; }
